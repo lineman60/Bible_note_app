@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %} Add a Note! {% endblock %}
+
+{% block body_block %}
+
+<h1> Add Note </h1>
+    {% csrf_token %}
+
+
+{% endblock %}
