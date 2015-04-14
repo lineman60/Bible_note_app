@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'note_app',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,7 +88,14 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
-# Shamelessly stolen from Stack Overflow as a fix for not wanting to upload evey thing to GIT.
+#Settings for django-registration-redux
+
+REGISTRATION_OPEN = True
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/note/'
+LOGIN_URL = '/accounts/login/'
+
+# Shamelessly stolen from Stack Overflow as a fix for not wanting to upload Secretkeys DB passwords ect. to GIT.
 try:
     from local_settings import *
 except ImportError:
