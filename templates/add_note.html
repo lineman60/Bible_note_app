@@ -4,7 +4,6 @@
 {% block title %} Add a Note! {% endblock %}
 
 {% block body_block %}
-
 <h1> Add Note </h1>
     <form id="note_form" method="post" action="/note/add_note/" >
     {% csrf_token %}
@@ -15,6 +14,6 @@
         <br />
     {% endfor %}
 
-<input type="submit" name="submit" value="Create Note" />
+<input type="submit" name="submit" value="Create Note" class="btn" />
 </form>
 {% endblock %}

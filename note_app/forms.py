@@ -14,4 +14,4 @@ class NoteForm(forms.ModelForm):
 
         class Meta:
             model = Anote
-           # exclude = ('contributor')
+           # exclude = ('contributor',)
