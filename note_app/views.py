@@ -12,6 +12,12 @@ def add_note(request):
         if form.is_valid():
             form.save(commit=True)
             return index(request)
+        else:
+            print form.errors
+    else:
+        form = NoteForm()
+
+    return  render(request, 'add_note.html', {'form': form})
 
 
 
