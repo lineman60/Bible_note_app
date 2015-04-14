@@ -7,6 +7,6 @@ class Anote(models.Model):
     chapter = models.IntegerField()
     verse = models.IntegerField()
     note_text = models.TextField(max_length=400)
-    note_source = models.CharField(max_length=60)
+    note_source = models.CharField(max_length=60, null=True)
     is_public = models.BooleanField(default=False)
     contributor = models.CharField(max_length=128)

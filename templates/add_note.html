@@ -6,7 +6,7 @@
 {% block body_block %}
 
 <h1> Add Note </h1>
-    <form id="note_form" method="post" action="note/add_note/" >
+    <form id="note_form" method="post" action="/note/add_note/" >
     {% csrf_token %}
     {% for field in form.visible_fields %}
     {{ field.errors }}
