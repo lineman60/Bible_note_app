@@ -1,1 +1,3 @@
 django-registration-redux
+#Not required but may help
+django-extensions

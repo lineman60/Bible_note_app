@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'note_app',
     'registration',
+
 )
 
 MIDDLEWARE_CLASSES = (
