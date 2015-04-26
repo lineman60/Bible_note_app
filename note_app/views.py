@@ -6,7 +6,10 @@ from note_app.forms import NoteForm
 
 
 def index(request):
-    return HttpResponse("Hold page for Index")
+    note_list = Anote.objects.filter(contributor__exact=request.user.username)
+    note_dict = {'your_notes': note_list}
+    return render(request,'main.html', note_dict)
+    #return HttpResponse("Hold page for Index")
 
 
 @login_required
