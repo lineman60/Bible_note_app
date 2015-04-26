@@ -7,6 +7,10 @@
 <h1> Edit Note </h1>
     <form id="note_form" method="post" action="/note/edit/{{ Anote.id }}/" >
     {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+
     {% for field in form.visible_fields %}
     {{ field.errors }}
     {{ field.help_text }}

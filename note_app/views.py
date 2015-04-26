@@ -9,6 +9,7 @@ def index(request):
 
 @login_required
 def add_note(request):
+    # posting data (push filed in form to server)
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
@@ -17,8 +18,9 @@ def add_note(request):
         else:
             print form.errors
     else:
-        #if not add
+        # if not posting the form show the blank form
         form = NoteForm()
+        #sets hidden field to user
         form.fields["contributor"].initial = request.user
     return  render(request, 'add_note.html', {'form': form})
 
@@ -26,11 +28,7 @@ def add_note(request):
 def edit_note(request, id=None):
     temp_note = Anote.objects.get(pk=id)
     if id:
-    # if request.method == 'POST':
-        #if Anote.contributor != request.user:
-        if temp_note.contributor != request.user:
-            print(request.user)
-            print(temp_note.contributor)
+        if temp_note.contributor != request.user.username:
             return HttpResponseForbidden()
         else:
              form = NoteForm(instance=temp_note)
