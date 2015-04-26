@@ -7,10 +7,10 @@ from note_app.forms import NoteForm
 def index(request):
     return HttpResponse("Hold page for Index")
 
+@login_required
 def add_note(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
-
         if form.is_valid():
             form.save(commit=True)
             return index(request)
@@ -19,11 +19,12 @@ def add_note(request):
     else:
         #if not add
         form = NoteForm()
+        form.fields["contributor"].initial = request.user
     return  render(request, 'add_note.html', {'form': form})
 
 @login_required
 def edit_note(request, id=None):
-    temp_note = get_object_or_404(Anote,pk=id)
+    temp_note = Anote.objects.get(pk=id)
     if id:
     # if request.method == 'POST':
         #if Anote.contributor != request.user:
