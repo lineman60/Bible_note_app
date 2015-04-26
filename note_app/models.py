@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Anote(models.Model):
     book = models.CharField(max_length=60)
     chapter = models.IntegerField()
