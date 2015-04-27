@@ -3,12 +3,14 @@
 
 {% block title %} Index of notes {% endblock %}
 {% block body_block %}
-    <h1> Welcome to the index page</h1>
+    <h1> View your notes </h1>
  {% if your_notes %}
             <dl>
                 {% for anote in your_notes %}
                 <dt> <strong> {{ anote.book }} {{ anote.chapter }} : {{ anote.verse }} </strong> </dt>
-                    <dd> {{ anote.note_text }} <br> Source:<i> {{ anote.note_source }} </i>  </dd>
+                    <dd> {{ anote.note_text }} <br> Source:<i> {{ anote.note_source }} </i> <br />
+                        <a href="/note/edit/{{ anote.id }}/"> Edit Link </a> </dd>
+                    <br />
                 {% endfor %}
             </dl>
         {% else %}

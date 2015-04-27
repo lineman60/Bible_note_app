@@ -8,6 +8,7 @@ from note_app.forms import NoteForm
 def index(request):
     note_list = Anote.objects.filter(contributor__exact=request.user.username)
     note_dict = {'your_notes': note_list}
+    #TODO add view for all public notes
     return render(request,'main.html', note_dict)
     #return HttpResponse("Hold page for Index")
 
