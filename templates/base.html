@@ -5,9 +5,20 @@
     <title>Bible Notes {% block title %} {% endblock %} </title>
 </head>
 <body>
-<div>
     {% block body_block %}
+    <div id="header">
+     {% if user.is_authenticated %}
+         Welcome {{ user.username }} !
+        <a href="{% url 'auth_logout' %}"> Log out!</a> |
+        <a href="{% url 'auth_password_change' %}">Change password</a>)
+    {% else %}
+       <a href="{% url 'auth_login' %}">Log in!</a>
+    {% endif %}
+    <hr />
+    </div>
 
+    <p>Not  a member? <a href="{% url 'registration_register' %}">Register</a>! | or
+        <a href="{% url 'auth_login' %}">Login!</a></p>
 
      {% endblock %}
 

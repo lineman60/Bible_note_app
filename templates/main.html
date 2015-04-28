@@ -3,18 +3,25 @@
 
 {% block title %} Index of notes {% endblock %}
 {% block body_block %}
-    <h1> View your notes </h1>
  {% if your_notes %}
+         <h1> View your notes </h1>
             <dl>
                 {% for anote in your_notes %}
                 <dt> <strong> {{ anote.book }} {{ anote.chapter }} : {{ anote.verse }} </strong> </dt>
                     <dd> {{ anote.note_text }} <br> Source:<i> {{ anote.note_source }} </i> <br />
-                        <a href="/note/edit/{{ anote.id }}/"> Edit Link </a> </dd>
+                       <a href="{% url 'edit_note' anote.id %}">  Edit Link </a>  </dd>
                     <br />
                 {% endfor %}
             </dl>
-        {% else %}
-            <strong>Nothing here add a note!</strong>
-        {% endif %}
+     {% endif %}
+     <h1> View shared notes notes </h1>
+            <dl>
+                {% for anote in pub_true %}
+                <dt> <strong> {{ anote.book }} {{ anote.chapter }} : {{ anote.verse }} </strong> </dt>
+                    <dd> {{ anote.note_text }} <br> Source:<i> {{ anote.note_source }} </i> <br />
+                        <i>  Contributed By:{{ anote.contributor }} </i> <br />  </dd> <br />
+                {% endfor %}
+            </dl>
+
 
 {% endblock %}
