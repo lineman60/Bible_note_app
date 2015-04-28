@@ -21,7 +21,8 @@
             <dl>
                 {% for anote in pub_true %}
                 <dt> <strong> {{ anote.book }} {{ anote.chapter }} : {{ anote.verse }} </strong> </dt>
-                    <dd> {{ anote.note_text }} <br> Source:<i> {{ anote.note_source }} </i> <br />
+                    <dd> {{ anote.note_text }} <br /> {% if anote.note_source %} Source: <i> {{ anote.note_source }} </i>
+                      <br />  {% endif %}
                         <i>  Contributed By:{{ anote.contributor }} </i> <br />  </dd> <br />
                 {% endfor %}
             </dl>
