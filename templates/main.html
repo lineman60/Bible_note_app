@@ -4,6 +4,7 @@
 {% block title %} Index of notes {% endblock %}
 {% block body_block %}
  {% if your_notes %}
+      <div id="your_note">
          <h1> View your notes </h1>
             <dl>
                 {% for anote in your_notes %}
@@ -13,7 +14,9 @@
                     <br />
                 {% endfor %}
             </dl>
+     </div>
      {% endif %}
+    <div id="pub_note">
      <h1> View shared notes notes </h1>
             <dl>
                 {% for anote in pub_true %}
@@ -22,6 +25,6 @@
                         <i>  Contributed By:{{ anote.contributor }} </i> <br />  </dd> <br />
                 {% endfor %}
             </dl>
-
+</div>
 
 {% endblock %}
