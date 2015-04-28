@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseForbidden
+from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from note_app.models import Anote
 from note_app.forms import NoteForm
@@ -9,10 +9,8 @@ from django.db.models import Q
 def index(request):
     note_list = Anote.objects.filter(contributor__exact=request.user.username)
     pub_note_list = Anote.objects.filter(~Q(contributor__exact=request.user.username) & Q(is_public__exact=True))
-    note_dict = {'your_notes': note_list,'pub_true':pub_note_list}
-    return render(request,'main.html', note_dict)
-
-
+    note_dict = {'your_notes': note_list, 'pub_true': pub_note_list}
+    return render(request, 'main.html', note_dict)
 
 
 @login_required
