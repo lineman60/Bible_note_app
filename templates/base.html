@@ -9,7 +9,9 @@
      {% if user.is_authenticated %}
          Welcome {{ user.username }}!
         (<a href="{% url 'auth_logout' %}"> Log out!</a> |
-        <a href="{% url 'auth_password_change' %}">Change password</a>)
+        <a href="{% url 'auth_password_change' %}">Change password</a> ) <br />
+         <a href="{% url 'add_note' %}">Add a Note</a> |
+         <a href="{% url 'index' %}">Show Notes</a>
     {% else %}
           <a href="{% url 'registration_register' %}">Register</a>! | or
           <a href="{% url 'auth_login' %}">Login!</a></p>

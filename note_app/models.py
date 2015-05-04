@@ -155,7 +155,7 @@ class BookName(models.Model):
 class Anote(models.Model):
     book = models.CharField(max_length=10, choices=BookName.books_of_the_bible_choices, default=BookName.Genesis)
     #book = models.CharField(max_length=3,)
-    chapter = models.IntegerField(null=True)
+    chapter = models.IntegerField()
     verse = models.IntegerField(null=True)
     note_text = models.TextField(max_length=400)
     note_source = models.CharField(max_length=60, null=True)
