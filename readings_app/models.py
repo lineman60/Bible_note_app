@@ -6,3 +6,8 @@ class KJV_Bible(models.Model):
     kjv_chapter = models.IntegerField()
     kjv_verse = models.IntegerField()
     kjv_verse_text = models.TextField(max_length=400)
+
+# TODO: Add Reading Chart!
+#class Daily_Reading(models.Model):
+#    reading_date = models.DateField()
+
