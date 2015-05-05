@@ -14,6 +14,9 @@ def index(request):
     note_dict = {'your_notes': note_list, 'pub_true': pub_note_list}
     return render(request, 'main.html', note_dict)
 
+#def public_view(request):
+
+
 
 @login_required
 def add_note(request):
