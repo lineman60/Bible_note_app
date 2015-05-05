@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from itertools import chain
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from note_app.models import Anote, BookName
 from note_app.forms import NoteForm
 from django.db.models import Q
